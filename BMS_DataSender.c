@@ -35,7 +35,7 @@ void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRat
   printf("Temperature SOC ChargeRate\n");
   for(int i = 0; i < TotalNoOfReadings; i++)
   {
-    Printf("%f\t%f\t%f\n",Temperature[i],SOC[i],ChargeRate[i]);
+    printf("%f\t%f\t%f\n",Temperature[i],SOC[i],ChargeRate[i]);
   }
 }
 
