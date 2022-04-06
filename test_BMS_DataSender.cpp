@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN 
 
 #include "test/catch.hpp"
+#include "BMS_DataSender.h"
 
 TEST_CASE("Testcase to check whether Sensor data is read successfully from a file") {
   float Temperature[10], SOC[10], ChargeRate[10];
