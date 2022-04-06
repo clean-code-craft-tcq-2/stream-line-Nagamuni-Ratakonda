@@ -16,7 +16,6 @@ bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate)
       Temperature[Readingindex] = currentTemperature;
       SOC[Readingindex] = currentSOC;
       ChargeRate[Readingindex] = currentChargeRate;
-      printf("Loop entered successfully %d\n",Readingindex);
     }
     isDataReadFromSender = true;
   }
