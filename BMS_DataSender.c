@@ -43,11 +43,7 @@ bool BMSSender(float *Temperature, float *SOC, float *ChargeRate)
 {
   bool result = false;
   result = GetBMSDataFromSender(Temperature,SOC,ChargeRate);
-  
-  if(result)
-  {
-    TransferBMSSensorToConsole(Temperature,SOC,ChargeRate);
-  }
+  TransferBMSSensorToConsole(Temperature,SOC,ChargeRate);
   
   return result;
 }
