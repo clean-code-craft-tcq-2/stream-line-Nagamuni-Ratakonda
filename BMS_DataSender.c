@@ -1,6 +1,6 @@
 #include "BMS_DataSender.h"
 
-bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile)
+bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, char inputFile)
 {
   bool isDataReadFromSender = false;
   float currentTemperature, currentSOC, currentChargeRate;
@@ -39,7 +39,7 @@ void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRat
   }
 }
 
-bool BMSSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile)
+bool BMSSender(float *Temperature, float *SOC, float *ChargeRate, char inputFile)
 {
   bool result = false;
   result = GetBMSDataFromSender(Temperature,SOC,ChargeRate,inputFile);
