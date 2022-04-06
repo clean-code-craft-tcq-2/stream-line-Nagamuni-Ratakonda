@@ -10,7 +10,7 @@ TEST_CASE("Testcase to check whether Sensor data is read successfully from a fil
   int index;
   
   // Verify data is fetched from sender
-  REQUIRE(GetBMSDataFromSender(&Temperature[0],&SOC[0],&ChargeRate[0]) == true);
+  REQUIRE(BMSSender(&Temperature[0],&SOC[0],&ChargeRate[0]) == true);
   
   FILE *test_SensorData_fp = fopen("./BMSSensorData.txt","r");
   
