@@ -1,12 +1,12 @@
 #include "BMS_DataSender.h"
 
-bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate)
+bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile)
 {
   bool isDataReadFromSender = false;
   float currentTemperature, currentSOC, currentChargeRate;
   int Readingindex = 0;
   
-  FILE *BMSSensorDataFile_fp = fopen("./BMSSensorData.txt","r");
+  FILE *BMSSensorDataFile_fp = fopen("inputFile","r");
   
   if(NULL != BMSSensorDataFile_fp)
   {
@@ -39,10 +39,10 @@ void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRat
   }
 }
 
-bool BMSSender(float *Temperature, float *SOC, float *ChargeRate)
+bool BMSSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile)
 {
   bool result = false;
-  result = GetBMSDataFromSender(Temperature,SOC,ChargeRate);
+  result = GetBMSDataFromSender(Temperature,SOC,ChargeRate,inputFile);
   TransferBMSSensorToConsole(Temperature,SOC,ChargeRate);
   
   return result;
