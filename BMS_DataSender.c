@@ -10,11 +10,13 @@ bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate)
   
   if(NULL != BMSSensorDataFile_fp)
   {
+    printf("File opened successfully");
     for(Readingindex = 0; fscanf(BMSSensorDataFile_fp, "%f, %f, %f\n", &currentTemperature, &currentSOC, &currentChargeRate)!=EOF; Readingindex++)
     {
       Temperature[Readingindex] = currentTemperature;
       SOC[Readingindex] = currentSOC;
       ChargeRate[Readingindex] = currentChargeRate;
+      printf("Loop entered successfully");
     }
     isDataReadFromSender = true;
   }
