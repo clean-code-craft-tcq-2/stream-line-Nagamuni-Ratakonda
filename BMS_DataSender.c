@@ -28,3 +28,26 @@ bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate)
   
   return isDataReadFromSender;
 }
+
+void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRate)
+{
+  printf("BMS sensor data from Sender\n");
+  printf("Temperature SOC ChargeRate\n");
+  for(int i = 0; i < TotalNoOfReadings; i++)
+  {
+    Printf("%f\t%f\t%f\n",Temperature[i],SOC[i],ChargeRate[i]);
+  }
+}
+
+bool BMSSender(float *Temperature, float *SOC, float *ChargeRate)
+{
+  bool result = false;
+  result = GetBMSDataFromSender(Temperature,SOC,ChargeRate);
+  
+  if(result)
+  {
+    TransferBMSSensorToConsole(Temperature,SOC,ChargeRate);
+  }
+  
+  return result;
+}
