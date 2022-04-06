@@ -6,7 +6,7 @@ bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, cha
   float currentTemperature, currentSOC, currentChargeRate;
   int Readingindex = 0;
   
-  FILE *BMSSensorDataFile_fp = fopen("inputFile","r");
+  FILE *BMSSensorDataFile_fp = fopen(inputFile,"r");
   
   if(NULL != BMSSensorDataFile_fp)
   {
