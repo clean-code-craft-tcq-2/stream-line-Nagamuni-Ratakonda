@@ -1,25 +1,21 @@
 #include "BMS_DataSender.h"
 
-bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, char *inputFile)
+void GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, char *inputFile)
 {
-  bool isDataReadFromSender = false;
   float currentTemperature, currentSOC, currentChargeRate;
   int Readingindex = 0;
   
   FILE *BMSSensorDataFile_fp = fopen(inputFile,"r");
   
-  printf("File opened successfully\n");
   for(Readingindex = 0; fscanf(BMSSensorDataFile_fp, "%f %f %f\n", &currentTemperature, &currentSOC, &currentChargeRate)!=EOF; Readingindex++)
   {
       Temperature[Readingindex] = currentTemperature;
       SOC[Readingindex] = currentSOC;
       ChargeRate[Readingindex] = currentChargeRate;
   }
-  isDataReadFromSender = true;
-  
+
   fclose(BMSSensorDataFile_fp);
   
-  return isDataReadFromSender;
 }
 
 void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRate)
@@ -32,11 +28,8 @@ void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRat
   }
 }
 
-bool BMSSender(float *Temperature, float *SOC, float *ChargeRate, char *inputFile)
+void BMSSender(float *Temperature, float *SOC, float *ChargeRate, char *inputFile)
 {
-  bool result = false;
-  result = GetBMSDataFromSender(Temperature,SOC,ChargeRate,inputFile);
+  GetBMSDataFromSender(Temperature,SOC,ChargeRate,inputFile);
   TransferBMSSensorToConsole(Temperature,SOC,ChargeRate);
-  
-  return result;
 }
