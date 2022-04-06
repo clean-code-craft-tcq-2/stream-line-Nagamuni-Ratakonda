@@ -8,7 +8,7 @@ TEST_CASE("Testcase to check whether Sensor data is read successfully from a fil
   float test_Temperature[TotalNoOfReadings], test_SOC[TotalNoOfReadings], test_ChargeRate[TotalNoOfReadings];
   float temp,soc,chrRate;
   int index;
-  char inputFile[] = "./BMSSensorData.txt"
+  char inputFile[] = "./BMSSensorData.txt";
   
   // Verify data is fetched from sender
   REQUIRE(BMSSender(&Temperature[0],&SOC[0],&ChargeRate[0],&inputFile[0]) == true);
