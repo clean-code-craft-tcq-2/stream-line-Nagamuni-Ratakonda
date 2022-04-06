@@ -3,6 +3,7 @@
 
 #define TotalNoOfReadings 10
 
-bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate);
+
+bool GetBMSDataFromSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile);
 void TransferBMSSensorToConsole(float *Temperature, float *SOC, float *ChargeRate);
-bool BMSSender(float *Temperature, float *SOC, float *ChargeRate);
+bool BMSSender(float *Temperature, float *SOC, float *ChargeRate, string inputFile);
