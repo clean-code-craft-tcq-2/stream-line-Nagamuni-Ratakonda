@@ -78,7 +78,7 @@ Setup the quality parameters of your project (duplication, complexity, coverage,
 
 ## Design
 
-
+https://user-images.githubusercontent.com/91056036/162118408-10a0eb4d-14ab-413d-9d07-3b655deef6f6.jpg
 
 
 
