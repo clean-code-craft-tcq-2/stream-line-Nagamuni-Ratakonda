@@ -79,7 +79,7 @@ Setup the quality parameters of your project (duplication, complexity, coverage,
 ## Design
 
 
-
+![TCQDesign](https://user-images.githubusercontent.com/91056036/162119134-fafe86ca-af4f-4459-b8cb-a76fa5941505.jpg
 
 
 
