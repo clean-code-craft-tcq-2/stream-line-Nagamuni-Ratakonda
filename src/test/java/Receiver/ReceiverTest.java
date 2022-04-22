@@ -24,8 +24,7 @@ public class ReceiverTest {
   public void testPrintToConsole() throws IOException {
     Receiver.printToConsole(Receiver.TEMP, 1.0f, 19.0f, 15.0f);
 
-    Assert.assertEquals("TEMPERATURE\r\n" + "Minimum TEMPERATURE: 1.0\r\n" + "Maximum TEMPERATURE: 19.0\r\n" +
-        "Moving Average for TEMPERATURE: 15.0", this.outputStreamCaptor.toString().trim());
+    Assert.assertEquals("TEMPERATURE\r\n" + "Minimum TEMPERATURE: 1.0\r\n" + "Maximum TEMPERATURE: 19.0\r\n" + "Moving Average for TEMPERATURE: 15.0", this.outputStreamCaptor.toString().trim());
   }
 
   @Test
