@@ -52,13 +52,16 @@ public class Receiver {
       if ((line == null) || line.equalsIgnoreCase(END)) {
         break;
       }
-      String trimmedLine = line.replaceAll("\\s+", " ");
-      String[] values = trimmedLine.split(" ", 3);
+      String[] values = getValuesfromConsoleLine(line);
       updateBatteryParamValues(values, tempList, socList, crList);
     }
     calculateStatisticsforBatteryParams(tempList, socList, crList);
   }
-
+  
+  public static String[] getValuesfromConsoleLine(final String line) {
+    String trimmedLine = line.replaceAll("\\s+", " ");
+    return trimmedLine.split(" ", 3);
+  }
 
   public static void updateBatteryParamValues(final String[] values, final List<Float> tempList,
       final List<Float> socList, final List<Float> crList) {
