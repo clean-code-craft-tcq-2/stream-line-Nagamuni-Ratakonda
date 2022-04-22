@@ -2,34 +2,15 @@ package Receiver;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ReceiverTest {
-  
-  private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
-  @Before
-  public void setUp() {
-    System.setOut(new PrintStream(this.outputStreamCaptor));
-  }
-
-  @Test
-  public void testPrintToConsole() {
-    Receiver.printToConsole(Receiver.TEMP, 1.0f, 15.0f, 9.0f);
-
-    Assert.assertEquals("TEMPERATURE\r\n" + "Minimum TEMPERATURE: 1.0\r\n" + "Maximum TEMPERATURE: 15.0\r\n" +
-        "Moving Average for TEMPERATURE: 9.0", this.outputStreamCaptor.toString().trim());
-  }
   
   @Test
   public void testGetLastFiveValues() {
