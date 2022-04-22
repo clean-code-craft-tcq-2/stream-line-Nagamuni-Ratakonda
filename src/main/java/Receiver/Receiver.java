@@ -43,7 +43,7 @@ public class Receiver {
     scanner.close();
   }
 
-  private static void processConsoleInput(final Scanner scanner) throws Exception {
+  public static void processConsoleInput(final Scanner scanner) throws Exception {
     List<Float> tempList = new ArrayList<>();
     List<Float> socList = new ArrayList<>();
     List<Float> crList = new ArrayList<>();
@@ -54,13 +54,17 @@ public class Receiver {
       }
       String trimmedLine = line.replaceAll("\\s+", " ");
       String[] values = trimmedLine.split(" ", 3);
-      BatteryParams batteryParam = new BatteryParams(values);
-      tempList.add(batteryParam.temp);
-      socList.add(batteryParam.soc);
-      crList.add(batteryParam.cr);
+      updateBatteryParamValues(values, tempList, socList, crList);
     }
     calculateStatisticsforBatteryParams(tempList, socList, crList);
+  }
 
+
+  public static void updateBatteryParamValues(final String[] values, final List<Float> tempList,
+      final List<Float> socList, final List<Float> crList) {
+    tempList.add(Float.parseFloat(values[0]));
+    socList.add(Float.parseFloat(values[1]));
+    crList.add(Float.parseFloat(values[2]));
   }
 
   public static void calculateStatisticsforBatteryParams(final List<Float> tempList, final List<Float> socList,
