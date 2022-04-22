@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Receiver {
 
   public static final String CAPTION = "Temperature SOC ChargeRate";
-  public static final String END = "===============================================================================";
   public static final String TEMP = "TEMPERATURE";
   public static final String SOC = "STATE OF CHARGE";
   public static final String CR = "CHARGE RATE";
@@ -47,11 +46,8 @@ public class Receiver {
     List<Float> tempList = new ArrayList<>();
     List<Float> socList = new ArrayList<>();
     List<Float> crList = new ArrayList<>();
-    while (true) {
+    for (int i = 1; i <= 10; ++i) {
       String line = scanner.nextLine();
-      if ((line == null) || line.equalsIgnoreCase(END)) {
-        break;
-      }
       String[] values = getValuesfromConsoleLine(line);
       updateBatteryParamValues(values, tempList, socList, crList);
     }
