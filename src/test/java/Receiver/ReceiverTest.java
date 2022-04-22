@@ -1,6 +1,10 @@
 package Receiver;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.After;
@@ -81,10 +85,10 @@ public class ReceiverTest {
     String[] value2 = { "2.0000", "12.0000", "0.3000" };
     String[] value3 = { "5.0000", "2.0000", "0.5000" };
     Receiver.updateBatteryParamValues(value1, tempList, socList, crList);
-    assertEquals(7.0000f, tempList.get(0), 0.0f);
+    Assert.assertEquals(7.0000f, tempList.get(0), 0.0f);
     Receiver.updateBatteryParamValues(value2, tempList, socList, crList);
-    assertEquals(0.3000f, crList.get(crList.size() - 1), 0.0f);
+    Assert.assertEquals(0.3000f, crList.get(crList.size() - 1), 0.0f);
     Receiver.updateBatteryParamValues(value3, tempList, socList, crList);
-    assertEquals(2.0000f, socList.get(socList.size() - 1), 0.0f);
+    Assert.assertEquals(2.0000f, socList.get(socList.size() - 1), 0.0f);
   }
 }
